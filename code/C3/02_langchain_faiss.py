@@ -15,7 +15,7 @@ embeddings = HuggingFaceEmbeddings(model_name="BAAI/bge-small-zh-v1.5")
 vectorstore = FAISS.from_documents(docs, embeddings)
 
 local_faiss_path = "./faiss_index_store"
-vectorstore.save_local(local_faiss_path)
+vectorstore.save_local(local_faiss_path) 
 
 print(f"FAISS index has been saved to {local_faiss_path}")
 
@@ -28,7 +28,7 @@ loaded_vectorstore = FAISS.load_local(
 )
 
 # 执行相似性搜索
-query = "FAISS是做什么的？"
+query = "LangChain?"
 results = loaded_vectorstore.similarity_search(query, k=1)
 
 print(f"\n查询: '{query}'")
